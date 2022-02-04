@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "capstone-untangl": {
+      "hosting": {
+        "capstone": [
+          "capstone-untangl"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "capstone-untangl"
+  }
+}
