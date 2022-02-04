@@ -1,30 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/user/user.interface';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../user/user.interface';
 
 @Component({
   selector: 'app-form',
-  template: `
-  <div class="form-group">
-    <label for="email"> Email address </label>
-    <input type="email" 
-    class="form-control" 
-    id="email" 
-    placeholder="Enter email" 
-    [(ngModel)]="user.email">
-  </div>
-  <div class="form-group">
-    <label for="password"> Password </label>
-    <input type="password" 
-    class="form-control" 
-    id="email" 
-    placeholder="Password" 
-    [(ngModel)]="user.password">
-  </div>
-  <button class="btn btn-primary" (click)="onSubmit()">{{ btnText }}</button>
-  `,
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
+
 
   @Input() btnText : string = ''
 
@@ -41,6 +25,11 @@ export class FormComponent {
     } else if(this.btnText === 'REGISTER') {
       this.auth.signUp(this.user)
     }
+  }
+  
+  
+
+  ngOnInit(): void {
   }
 
 }
